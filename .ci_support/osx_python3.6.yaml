@@ -1,7 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
 boost:
-- 1.70.0
+- '1.72'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
@@ -9,7 +9,9 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '4'
+- '9'
+fftw:
+- '3'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 macos_min_version:
@@ -19,6 +21,8 @@ numpy:
 pin_run_as_build:
   boost:
     max_pin: x.x.x
+  fftw:
+    max_pin: x
   python:
     min_pin: x.x
     max_pin: x.x
