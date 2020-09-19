@@ -1,5 +1,5 @@
 {% set name = "ndarray" %}
-{% set version = "1.5.3" %}
+{% set version = "1.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://github.com/ndarray/ndarray/archive/{{ version }}.tar.gz
-  sha256: 1a4f517869bbc2576ea6dc4c8018c954c5bb249a2848b716f1d5048270b3fc8d
+  sha256: adf13e40735572d391de0a3836aa04319b7d780def8e159b03c34decfa6703c0
   patches:
     - 0001-shared-unit-test-link.patch
 
 build:
-  number: 1
-  skip: True  # [win]
+  number: 0
+  skip: true  # [win]
 
 requirements:
   build:
@@ -43,7 +43,7 @@ about:
   license: BSD
   license_file: LICENSE
   summary: NumPy-friendly multidimensional arrays in C++
-  description: | 
+  description: |
     ndarray is a template library that provides multidimensional array objects in C++, with an 
     interface and features designed to mimic the Python 'numpy' package as much as possible.
 
