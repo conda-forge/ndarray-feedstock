@@ -28,7 +28,6 @@ requirements:
     - numpy
     - pybind11 >2.2
     - eigen
-    - python
 
 test:
   commands:
