@@ -27,7 +27,7 @@ requirements:
     - fftw
     - numpy
     - pybind11 >2.2
-    - eigen <3.3
+    - eigen
     - python
 
 test:
