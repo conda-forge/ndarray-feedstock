@@ -26,7 +26,7 @@ requirements:
     - boost
     - fftw
     - numpy
-    - pybind11 <2.3
+    - pybind11 >2.2
     - eigen <3.3
     - python
 
