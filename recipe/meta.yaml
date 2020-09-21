@@ -39,7 +39,7 @@ about:
   home: https://github.com/ndarray/ndarray/
   doc_url: https://ndarray.github.io/ndarray/
   dev_url: https://github.com/ndarray/ndarray/
-  license: BSD
+  license: BSD-3-Clause
   license_file: LICENSE
   summary: NumPy-friendly multidimensional arrays in C++
   description: |
