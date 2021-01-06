@@ -8,8 +8,10 @@ export CMAKE_PREFIX_PATH=$PREFIX
 
 mkdir build
 cd build
-cmake -DNDARRAY_PYBIND11=ON -DCMAKE_INSTALL_PREFIX=$PREFIX ..
+cmake ${CMAKE_ARGS} -DNDARRAY_PYBIND11=ON -DCMAKE_INSTALL_PREFIX=$PREFIX ..
 make
+if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
 make test ARGS="-V"
+fi
 
 make install
