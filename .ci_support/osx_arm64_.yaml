@@ -1,28 +1,25 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '11.0'
 boost:
 - 1.74.0
-cdt_name:
-- cos6
 channel_sources:
-- conda-forge,defaults
+- conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- gxx
+- clangxx
 cxx_compiler_version:
-- '9'
-docker_image:
-- quay.io/condaforge/linux-anvil-comp7
+- '11'
 fftw:
 - '3'
+macos_machine:
+- arm64-apple-darwin20.0.0
 numpy:
-- '1.16'
+- '1.19'
 pin_run_as_build:
   boost:
     max_pin: x.x.x
   fftw:
     max_pin: x
 target_platform:
-- linux-64
-zip_keys:
-- - cdt_name
-  - docker_image
+- osx-arm64
