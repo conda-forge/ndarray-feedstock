@@ -20,7 +20,7 @@ requirements:
     - cmake
     - m4
     - {{ compiler('cxx') }}
-    - pkgconfig
+    - pkg-config
   host:
     - boost-cpp
     - fftw
