@@ -12,7 +12,7 @@ source:
     - 0001-shared-unit-test-link.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -21,11 +21,15 @@ requirements:
     - m4
     - {{ compiler('cxx') }}
     - pkgconfig
+    - python  # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+    - {{ pin_compatible('numpy') }}  # [build_platform != target_platform]
 
   host:
+    - python
     - boost
     - fftw
-    - numpy
+    - {{ pin_compatible('numpy') }}
     - pybind11 >2.2
     - eigen
 
