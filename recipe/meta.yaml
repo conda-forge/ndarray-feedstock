@@ -26,6 +26,7 @@ requirements:
     - {{ pin_compatible('numpy') }}  # [build_platform != target_platform]
 
   host:
+    - python  # [build_platform != target_platform]
     - boost
     - fftw
     - {{ pin_compatible('numpy') }}
