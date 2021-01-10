@@ -14,8 +14,6 @@ source:
 build:
   number: 1
   skip: true  # [win]
-  ignore_run_exports_from:
-    - python
 
 requirements:
   build:
@@ -23,16 +21,13 @@ requirements:
     - m4
     - {{ compiler('cxx') }}
     - pkgconfig
-    - python                              # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}  # [build_platform != target_platform]
-    - numpy                               # [build_platform != target_platform]
   host:
-    - python *                            # [build_platform != target_platform]
-    - boost
+    - boost-cpp
     - fftw
-    - numpy
-    - pybind11 >2.2
     - eigen
+    # following are test dependencies
+    - numpy *            # [build_platform != target_platform]
+    - pybind11 >2.2      # [build_platform != target_platform]
 
 test:
   commands:
