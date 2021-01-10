@@ -26,8 +26,8 @@ requirements:
     - fftw
     - eigen
     # following are test dependencies
-    - numpy *            # [build_platform != target_platform]
-    - pybind11 >2.2      # [build_platform != target_platform]
+    - numpy *            # [build_platform == target_platform]
+    - pybind11 >2.2      # [build_platform == target_platform]
 
 test:
   commands:
