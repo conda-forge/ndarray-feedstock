@@ -12,7 +12,7 @@ source:
     - 0001-shared-unit-test-link.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -20,14 +20,14 @@ requirements:
     - cmake
     - m4
     - {{ compiler('cxx') }}
-    - pkgconfig
-
+    - pkg-config
   host:
-    - boost
+    - boost-cpp
     - fftw
-    - numpy
-    - pybind11 >2.2
     - eigen
+    # following are test dependencies
+    - numpy *            # [build_platform == target_platform]
+    - pybind11 >2.2      # [build_platform == target_platform]
 
 test:
   commands:

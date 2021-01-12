@@ -5,11 +5,20 @@ export EIGEN_DIR=$PREFIX
 export FFTW_DIR=$PREFIX
 export CMAKE_PREFIX_PATH=$PREFIX
 
-
 mkdir build
 cd build
-cmake -DNDARRAY_PYBIND11=ON -DCMAKE_INSTALL_PREFIX=$PREFIX ..
+if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
+  # enable pybind11 testing only if native building
+  CMAKE_ARGS+=" -DNDARRAY_PYBIND11=ON"
+else
+  CMAKE_ARGS+=" -DNDARRAY_TEST=NO"
+fi
+
+cmake ${CMAKE_ARGS} -DCMAKE_INSTALL_PREFIX=$PREFIX ..
 make
-make test ARGS="-V"
+
+if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
+  make test ARGS="-V"
+fi
 
 make install
