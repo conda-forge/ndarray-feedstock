@@ -1,0 +1,12 @@
+--- tests/ndarray-eigen.cc.orig	2022-01-10 13:18:40.000000000 -0800
++++ tests/ndarray-eigen.cc	2022-01-10 13:19:20.000000000 -0800
+@@ -90,8 +90,8 @@
+     m1.setRandom(m, 6);
+     Eigen::Matrix<T, Eigen::Dynamic, Cols> m2(6, n);
+     m2.setRandom(6, n);
+-    asEigenMatrix(makeMutable(a)) = m1 * m2;
+     Eigen::Matrix<T, Rows, Cols> m3 = m1 * m2;
++    asEigenMatrix(makeMutable(a)) = m3;
+     for (int i = 0; i < m; ++i) {
+         for (int j = 0; j < n; ++j) {
+             BOOST_CHECK(a[i][j] == m3(i, j));
