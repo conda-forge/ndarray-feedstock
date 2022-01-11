@@ -1,12 +1,20 @@
 --- tests/ndarray-eigen.cc.orig	2022-01-10 13:18:40.000000000 -0800
-+++ tests/ndarray-eigen.cc	2022-01-10 13:19:20.000000000 -0800
-@@ -90,8 +90,8 @@
-     m1.setRandom(m, 6);
-     Eigen::Matrix<T, Eigen::Dynamic, Cols> m2(6, n);
-     m2.setRandom(6, n);
--    asEigenMatrix(makeMutable(a)) = m1 * m2;
++++ tests/ndarray-eigen.cc	2022-01-10 21:29:45.000000000 -0800
+@@ -94,14 +94,15 @@
      Eigen::Matrix<T, Rows, Cols> m3 = m1 * m2;
-+    asEigenMatrix(makeMutable(a)) = m3;
      for (int i = 0; i < m; ++i) {
          for (int j = 0; j < n; ++j) {
-             BOOST_CHECK(a[i][j] == m3(i, j));
+-            BOOST_CHECK(a[i][j] == m3(i, j));
++	     BOOST_CHECK_CLOSE(a[i][j], m3(i, j), 0.000000001);
+         }
+     }
+     Eigen::Array<T, Rows, Cols> m4(m, n);
+     m4.setRandom();
+     Eigen::Array<T, Rows, Cols> m5 = m4 * asEigenArray(a);
+     Eigen::Array<T, Rows, Cols> m6 = m4 * m3.array();
+-    BOOST_CHECK((m5 == m6).all());
++    BOOST_CHECK(m5.size() == m6.size());
++    for(int i=0;i< m5.size();i++) BOOST_CHECK_CLOSE(m5(i), m6(i), 0.000000001);
+ }
+ 
+ template <typename T, typename XprKind>

@@ -15,7 +15,7 @@ else
 fi
 
 cmake ${CMAKE_ARGS} -DCMAKE_INSTALL_PREFIX=$PREFIX ..
-make
+make VERBOSE=1
 
 if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
   make test ARGS="-V"
