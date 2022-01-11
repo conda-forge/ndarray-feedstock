@@ -10,6 +10,7 @@ source:
   sha256: c5c7264e53588d90e299e205dd8ae846e28d9f93835f76b0be9e4042ddb24bd3
   patches:
     - 0001-shared-unit-test-link.patch
+    - linux-aarch64.patch  # [aarch64]
 
 build:
   number: 1
@@ -21,6 +22,8 @@ requirements:
     - m4
     - {{ compiler('cxx') }}
     - pkg-config
+    - make
+
   host:
     - boost-cpp
     - fftw
