@@ -1,0 +1,9 @@
+--- CMakeLists.txt.orig	2023-04-10 08:27:38
++++ CMakeLists.txt	2023-04-10 08:27:57
+@@ -32,3 +32,6 @@
+     add_subdirectory(tests)
+ endif(NDARRAY_TEST)
+ 
++# installation
++install(DIRECTORY include/ DESTINATION include/
++        FILES_MATCHING PATTERN "*.h")

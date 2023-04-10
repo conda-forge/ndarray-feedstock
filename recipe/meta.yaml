@@ -10,6 +10,7 @@ source:
   sha256: 92fe26d0a421960a0456a6ae83ee865fc5e02e4f94a8b49d7f24a389b4fd93cb
   patches:
     - 0001-shared-unit-test-link.patch
+    - 0002-restore-installation.patch
     - linux-aarch64.patch  # [aarch64]
 
 build:
