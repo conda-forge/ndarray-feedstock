@@ -1,5 +1,5 @@
 {% set name = "ndarray" %}
-{% set version = "1.6.1" %}
+{% set version = "1.6.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,12 @@ package:
 
 source:
   url: https://github.com/ndarray/ndarray/archive/{{ version }}.tar.gz
-  sha256: c5c7264e53588d90e299e205dd8ae846e28d9f93835f76b0be9e4042ddb24bd3
+  sha256: 106fbeaab28f7e18d3458df823a6553090cb0ea8c7ef8a282580267219a27dcc
   patches:
-    - 0001-shared-unit-test-link.patch
     - linux-aarch64.patch  # [aarch64]
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
 
 requirements:
