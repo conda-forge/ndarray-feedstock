@@ -17,7 +17,5 @@ macos_machine:
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
-  fftw:
-    max_pin: x
 target_platform:
 - osx-arm64
