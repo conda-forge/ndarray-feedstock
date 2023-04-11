@@ -12,8 +12,11 @@ source:
     - linux-aarch64.patch  # [aarch64]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
+  ignore_run_exports_from:
+    - numpy *
+    - pybind11
 
 requirements:
   build:
@@ -45,7 +48,7 @@ about:
   license_file: LICENSE
   summary: NumPy-friendly multidimensional arrays in C++
   description: |
-    ndarray is a template library that provides multidimensional array objects in C++, with an 
+    ndarray is a template library that provides multidimensional array objects in C++, with an
     interface and features designed to mimic the Python 'numpy' package as much as possible.
 
 extra:
