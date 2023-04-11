@@ -14,6 +14,9 @@ source:
 build:
   number: 1
   skip: true  # [win]
+  ignore_run_exports_from:
+    - numpy *
+    - pybind11
 
 requirements:
   build:
@@ -27,11 +30,11 @@ requirements:
     - boost-cpp
     - fftw
     - eigen
+    # following are test dependencies
+    - numpy *            # [build_platform == target_platform]
+    - pybind11 >2.2      # [build_platform == target_platform]
 
 test:
-  requires:
-    - numpy
-    - pybind11 > 2.2
   commands:
     - test -f ${PREFIX}/include/ndarray.h  # [unix]
     - test -f ${PREFIX}/include/ndarray/ArrayBaseN.h  # [unix]
