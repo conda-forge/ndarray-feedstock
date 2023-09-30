@@ -12,7 +12,7 @@ source:
     - linux-aarch64.patch  # [aarch64]
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   ignore_run_exports_from:
     - numpy *
@@ -27,7 +27,7 @@ requirements:
     - make
 
   host:
-    - boost-cpp
+    - libboost-headers
     - fftw
     - eigen
     # following are test dependencies
