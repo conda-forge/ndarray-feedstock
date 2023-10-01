@@ -27,7 +27,7 @@ requirements:
     - make
 
   host:
-    - libboost-headers
+    - libboost-devel
     - fftw
     - eigen
     # following are test dependencies
