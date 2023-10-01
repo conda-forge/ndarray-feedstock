@@ -17,6 +17,7 @@ build:
   ignore_run_exports_from:
     - numpy *
     - pybind11
+    - libboost-devel
 
 requirements:
   build:
