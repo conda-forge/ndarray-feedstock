@@ -1,4 +1,5 @@
 #!/bin/bash
+set -ex
 
 export BOOST_DIR=$PREFIX
 export EIGEN_DIR=$PREFIX
@@ -14,11 +15,12 @@ else
   CMAKE_ARGS+=" -DNDARRAY_TEST=NO"
 fi
 
-cmake ${CMAKE_ARGS} -DCMAKE_INSTALL_PREFIX=$PREFIX ..
-make VERBOSE=1
+cmake -G Ninja ${CMAKE_ARGS} -DCMAKE_INSTALL_PREFIX=$PREFIX ..
 
-if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" ]]; then
-  make test ARGS="-V"
+cmake --build . -- -v
+
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
+  ctest --progress --output-on-failure --verbose
 fi
 
-make install
+cmake --install .
