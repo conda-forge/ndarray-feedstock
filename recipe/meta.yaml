@@ -25,7 +25,7 @@ requirements:
     - m4
     - {{ compiler('cxx') }}
     - pkg-config
-    - make
+    - ninja
 
   host:
     - libboost-devel
