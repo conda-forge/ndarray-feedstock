@@ -15,13 +15,13 @@ channel_targets:
 cxx_compiler:
 - gxx
 cxx_compiler_version:
-- '12'
+- '13'
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 fftw:
 - '3'
 libboost_devel:
-- '1.84'
+- '1.86'
 target_platform:
 - linux-aarch64
 zip_keys:
